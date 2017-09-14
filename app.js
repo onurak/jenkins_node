@@ -1,24 +1,28 @@
-var express       = require("express");
-var session       = require('express-session');
-var bodyParser    = require("body-parser");
-var cookieParser  = require("cookie-parser");
-var morgan        = require('morgan');
-var helmet        = require("helmet");
-var path          = require("path");
-var csrf          = require('csurf');
-var mongoose      = require('mongoose');
+var express         = require("express");
+var session         = require('express-session');
+var bodyParser      = require("body-parser");
+var cookieParser    = require("cookie-parser");
+var morgan          = require('morgan');
+var helmet          = require("helmet");
+var path            = require("path");
+var csrf            = require('csurf');
+var mongoose        = require('mongoose');
+
+global.__base       = __dirname + '/';
+global.conf         = require('./config/local.json');	
+//global.conf = require('./config/' + process.env.PRANAGEO_ENV + '.json');   
+global.jenkins      = require('jenkins')({ baseUrl: global.conf.jenkins, crumbIssuer: true });
 
 
-global.__base     = __dirname + '/';
-global.conf       = require('./config/local.json');	
-//global.conf = require('./config/config.' + process.env.PRANAGEO_ENV + '.json');   
 mongoose.connect(global.conf.mongo);
+
 
 var applicationRouter     = require(__base + 'routers/application-router');	
 var deployRouter          = require(__base + 'routers/deploy-router');	
 var serverRouter          = require(__base + 'routers/server-router'); 
 var userRouter            = require(__base + 'routers/user-router');
 var authenticationRouter  = require(__base + 'routers/authentication-router'); 
+var jenkinsRouter         = require(__base + 'routers/jenkins-router'); 
 
 //mongoose.connect(database.url);
 
@@ -84,6 +88,7 @@ app.use('/api/users', isAuthenticated, userRouter);
 app.use('/api/servers', isAuthenticated, serverRouter);
 app.use('/api/deploys', isAuthenticated, deployRouter);
 app.use('/api/applications', isAuthenticated, applicationRouter);
+app.use('/api/jenkins', isAuthenticated, jenkinsRouter);
 /*
 app.use('/api/users', userRouter);
 app.use('/api/servers', serverRouter);
@@ -109,4 +114,19 @@ app.get('/', function (req, res) {
 
 app.listen(8888);
 console.log('app started');
+
+
+// var log = global.jenkins.build.logStream('example', 1);
+
+// log.on('data', function(text) {
+//   process.stdout.write(text);
+// });
+
+// log.on('error', function(err) {
+//   console.log('error', err);
+// });
+
+// log.on('end', function() {
+//   console.log('end');
+// });
 

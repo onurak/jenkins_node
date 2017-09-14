@@ -1,5 +1,6 @@
-app.controller('DeploysController', ['$scope', '$location', 'deploys', 'apps', 'servers', '$mdDialog', '$mdMedia', '$mdToast',
-	function ($scope, $location, item_resource, apps, servers, $mdDialog, $mdMedia, $mdToast) {
+app.controller('DeploysController', 
+	['$scope', '$location', 'deploys', 'apps', 'servers', '$mdDialog', '$mdMedia', '$mdToast', 'jenkins',
+	function ($scope, $location, item_resource, apps, servers, $mdDialog, $mdMedia, $mdToast, jenkins) {
 
 
 		var selected_item = null;
@@ -149,9 +150,28 @@ app.controller('DeploysController', ['$scope', '$location', 'deploys', 'apps', '
 		    	}, function() {
 		      		//$scope.status = 'You cancelled the dialog.';
 		    	});
+	    	}	    	    
+	  	};
+
+	  	$scope.deployJob = function() {
+
+	    	if($scope.selected == 0) {
+	    		$mdToast.show($mdToast.simple().textContent('Please select an application to deploy...').position('top right').hideDelay(3000));
+	    	} else if($scope.selected == 2) {
+	    		$mdToast.show($mdToast.simple().textContent('Please select only one application to deploy...').position('top right').hideDelay(3000));
+	    	} else {
+    			
+    			var response = jenkins.save({}, selected_item, function(result) {
+	    			if(response.success) {
+	    				$mdToast.show($mdToast.simple().textContent('Saved.').position('top right').hideDelay(3000));
+	    				console.log(response.message);
+					} else {
+						$mdToast.show($mdToast.simple().textContent(response.message).position('top right').hideDelay(3000));
+					}
+				});
+
 	    	}
-	    	
-	    	
+
 	  	};
 }]);
 

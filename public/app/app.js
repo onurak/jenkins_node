@@ -7,6 +7,7 @@ var app = angular.module('adminApp',[
   'adminApp.services.authentication',
   'adminApp.services.deploys',
   'adminApp.services.servers',
+  'adminApp.services.jenkins',
   'ngMaterial', 
   'ngMessages', 
   'material.svgAssetsCache',
