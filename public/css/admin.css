@@ -1,0 +1,75 @@
+.fs18 {
+  font-size: 18px;
+}
+
+.fs14 {
+  font-size: 14px;
+}
+
+.fs12 {
+  font-size: 12px;
+}
+
+.fs10 {
+  font-size: 10px;
+}
+
+.pad12 {
+	padding: 12px 12px 12px 12px
+}
+
+.pad20 {
+	padding: 20px 20px 20px 20px
+}
+
+.pl12 {
+	padding-left: 12px;
+}
+
+.pr12 {
+	padding-right: 12px;
+}
+
+.ph12 {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.p12 {
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+
+.pt2 {
+	padding-top: 2px;
+}
+
+.pb2 {
+	padding-bottom: 2px;
+}
+
+.pv2 {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.selected {
+	color: rgb(255,235,59);
+}
+
+.notselected {
+	color: rgba(255,255,255,1.0);
+}
+
+
+.loginBox {
+  max-width: 60%;
+  width: 480px;
+  height: 300px;
+}
+
+.stretch input {
+  width: 100%
+}

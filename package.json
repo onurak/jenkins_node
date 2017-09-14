@@ -1,0 +1,36 @@
+{
+    "name": "admin",
+    "version": "0.0.1",
+    "description": "geoSpectral Admin",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha test"
+    },
+    "author": "onura",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "latest",
+        "chai": "latest",
+        "cookie-parser": "latest",
+        "express": "latest",
+        "express-session": "latest",
+        "guid": "latest",
+        "helmet": "latest",
+        "mocha": "latest",
+        "morgan": "latest",
+        "mongoose": "latest",
+        "request": "latest",
+        "request-json": "latest",
+        "underscore": "latest",
+        "xml2js": "latest",
+        "sinon": "latest",
+        "crypto": "latest",
+        "csurf": "latest",
+        "passport": "latest",
+        "cheerio": "latest",
+        "jsonwebtoken": "latest",
+        "base64-url": "latest",
+        "bcrypt": "latest"
+    }
+}

@@ -1,0 +1,92 @@
+<div layout="column" style="width: 100%" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+  <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">Add Server</md-button>
+
+    <mdt-table style="width:100%;"
+              table-card="{visible: true, title: 'Servers'}"
+             selectable-rows="true"
+             alternate-headers="'contextual'"
+             delete-row-callback="delete_item(rows)"
+             save-row-callback="put_item(row)">
+    <mdt-header-row >
+      <mdt-column align-rule="left">ID</mdt-column>
+      <mdt-column align-rule="left">Name</mdt-column>
+      <mdt-column align-rule="right">Server IP</mdt-column>
+      <mdt-column align-rule="right">DNS</mdt-column>
+      <mdt-column align-rule="right">Root Username</mdt-column>
+      <mdt-column align-rule="right">Root Password</mdt-column>
+      <mdt-column align-rule="right">Comments</mdt-column>
+    </mdt-header-row>
+    <mdt-row 
+             ng-repeat="item in items"
+             table-row-id="item._id">
+      <mdt-cell >{{item._id}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.descriptiveName}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.serverIP}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.serverDNSName}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.rootUserName}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.rootPassword}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.comments}}</mdt-cell>
+    </mdt-row>
+  </mdt-table>
+</div>
+
+<script type="text/ng-template" id="server.add.html"><md-dialog aria-label="Add Server">
+  <form ng-cloak style="width: 640px">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Server</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+    
+        <md-input-container class="md-block">
+          <label>Name</label>
+          <input ng-model="item.descriptiveName">
+        </md-input-container>
+    
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>IP</label>
+            <input ng-model="item.serverIP">
+          </md-input-container>
+      
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>DNS</label>
+            <input ng-model="item.serverDNSName">
+          </md-input-container>
+        </div>
+    
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Root Username</label>
+            <input ng-model="item.rootUserName">
+          </md-input-container>
+      
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Root Password</label>
+            <input ng-model="item.rootPassword">
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Comments</label>
+          <textarea ng-model="user.biography" md-maxlength="250" rows="4" md-select-on-focus=""></textarea>
+        </md-input-container>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cancel()">Cancel</md-button>
+      <md-button ng-click="answer()">Save</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script>
+  

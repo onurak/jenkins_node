@@ -1,0 +1,67 @@
+<div layout="column" style="width: 100%" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+  <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">Add Application</md-button>
+
+    <mdt-table style="width:100%;"
+              table-card="{visible: true, title: 'Servers'}"
+             selectable-rows="true"
+             alternate-headers="'contextual'"
+             delete-row-callback="delete_item(rows)"
+             save-row-callback="put_item(row)">
+    <mdt-header-row >
+      <mdt-column align-rule="left">ID</mdt-column>
+      <mdt-column align-rule="left">Name</mdt-column>
+      <mdt-column align-rule="right">Job Name</mdt-column>
+      <mdt-column align-rule="right">Comments</mdt-column>
+    </mdt-header-row>
+    <mdt-row 
+             ng-repeat="item in items"
+             table-row-id="item._id">
+      <mdt-cell >{{item._id}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.name}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.jobName}}</mdt-cell>
+      <mdt-cell editable-field="smallEditDialog">{{item.comments}}</mdt-cell>
+    </mdt-row>
+  </mdt-table>
+</div>
+
+<script type="text/ng-template" id="app.add.html"><md-dialog aria-label="Add Application">
+  <form ng-cloak style="width: 640px">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Application</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+    
+        <md-input-container class="md-block">
+          <label>Name</label>
+          <input ng-model="item.name">
+        </md-input-container>
+    
+        <md-input-container class="md-block">
+          <label>Job Name</label>
+          <input ng-model="item.jobName">
+        </md-input-container>
+
+        <md-input-container class="md-block">
+          <label>Comments</label>
+          <textarea ng-model="user.biography" md-maxlength="250" rows="4" md-select-on-focus=""></textarea>
+        </md-input-container>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cancel()">Cancel</md-button>
+      <md-button ng-click="answer()">Save</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script>
+  

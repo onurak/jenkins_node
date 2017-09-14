@@ -1,0 +1,73 @@
+<div layout="column" style="width: 100%" ng-cloak="" class="md-inline-form inputdemoBasicUsage">
+  <md-button id="addButton" class="md-primary md-raised" ng-click="showAdvanced($event)">Add or Edit Selected Deployment</md-button>
+
+    <mdt-table style="width:100%;"
+              table-card="{visible: true, title: 'Servers'}"
+             selectable-rows="true"
+             alternate-headers="'contextual'"
+             delete-row-callback="delete_item(rows)"
+             save-row-callback="put_item(row)"
+             selected-row-callback="select_item(rows)">
+    <mdt-header-row >
+      <mdt-column align-rule="left">ID</mdt-column>
+      <mdt-column align-rule="left">Server</mdt-column>
+      <mdt-column align-rule="right">Application</mdt-column>
+    </mdt-header-row>
+    <mdt-row 
+             ng-repeat="item in items"
+             table-row-id="item._id">
+      <mdt-cell>{{item._id}}</mdt-cell>
+      <mdt-cell>{{item.server}}</mdt-cell>
+      <mdt-cell>{{item.application}}</mdt-cell>
+    </mdt-row>
+  </mdt-table>
+</div>
+
+<script type="text/ng-template" id="deploy.add.html"><md-dialog aria-label="Add Deployment">
+  <form ng-cloak style="width: 640px">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Deployment</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">    
+
+        <md-input-container class="md-block"  flex-gt-sm="">
+            <label>Server</label>
+            <md-select ng-model="item.server">
+              <md-option ng-repeat="server in servers" value="{{server.descriptiveName}}">
+                {{server.descriptiveName}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+        <md-input-container class="md-block"  flex-gt-sm="">
+            
+          </md-input-container>
+
+        <md-input-container class="md-block"  flex-gt-sm="">
+            <label>Application</label>
+            <md-select ng-model="item.application">
+              <md-option ng-repeat="app in apps" value="{{app.name}}">
+                {{app.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="cancel()">Cancel</md-button>
+      <md-button ng-click="answer()">Save</md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+</script>
+  
