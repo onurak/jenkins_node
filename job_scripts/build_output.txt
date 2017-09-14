@@ -1,0 +1,357 @@
+Started by user test user
+Building in workspace /var/jenkins_home/workspace/TestJob
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/PranaGeo/geoSpectral.git # timeout=10
+Fetching upstream changes from https://github.com/PranaGeo/geoSpectral.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/PranaGeo/geoSpectral.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/dev^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/dev^{commit} # timeout=10
+Checking out Revision c64127225067a3a4e7df1baabff5a396147a9fa3 (refs/remotes/origin/dev)
+Commit message: "Merge pull request #34 from scizmeli/dev"
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f c64127225067a3a4e7df1baabff5a396147a9fa3
+First time build. Skipping changelog.
+[TestJob] $ /bin/sh -xe /tmp/jenkins4527335344158962174.sh
++ bash --login -x job_scripts/job_test_geoSpectral.sh
+++ id -u
++ '[' 1000 -eq 0 ']'
++ PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
++ export PATH
++ '[' '' ']'
++ '[' -d /etc/profile.d ']'
++ for i in /etc/profile.d/*.sh
++ '[' -r '/etc/profile.d/*.sh' ']'
++ unset i
+SSH: Connecting from host [7a1f926d3f51]
+SSH: Connecting with configuration [targetdeploy key] ...
+SSH: Creating session: username [testuser], hostname [52.174.252.85], port [22]
+SSH: Connecting session ...
+SSH: Connected
+SSH: Opening SFTP channel ...
+SSH: SFTP channel open
+SSH: Connecting SFTP channel ...
+SSH: Connected
+SSH: Remote root is not absolute, getting absolute directory from PWD
+SSH: cd [/home/testuser]
+SSH: OK
+SSH: cd [job_scripts]
+SSH: OK
+SSH: put [job_check.packages.R]
+SSH: OK
+SSH: put [job_setup.sh]
+SSH: OK
+SSH: put [job_test_geoSpectral.sh]
+SSH: OK
+SSH: Opening exec channel ...
+SSH: EXEC: channel open
+SSH: EXEC: STDOUT/STDERR from command [bash job_scripts/job_setup.sh] ...
+SSH: EXEC: connected
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [102 kB]
+Hit:2 http://azure.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://azure.archive.ubuntu.com/ubuntu xenial-updates InRelease [102 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu xenial-backports InRelease [102 kB]
+Get:5 https://cran.rstudio.com/bin/linux/ubuntu xenial/ InRelease [3,590 B]
+Get:6 http://azure.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [637 kB]
+Get:7 http://azure.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [541 kB]
+Fetched 1,487 kB in 0s (2,680 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages will be upgraded:
+  apparmor cloud-init libapparmor-perl libapparmor1
+4 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 837 kB of archives.
+After this operation, 44.0 kB of additional disk space will be used.
+Get:1 http://azure.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapparmor1 amd64 2.10.95-0ubuntu2.7 [31.2 kB]
+Get:2 http://azure.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libapparmor-perl amd64 2.10.95-0ubuntu2.7 [31.6 kB]
+Get:3 http://azure.archive.ubuntu.com/ubuntu xenial-updates/main amd64 apparmor amd64 2.10.95-0ubuntu2.7 [450 kB]
+Get:4 http://azure.archive.ubuntu.com/ubuntu xenial-updates/main amd64 cloud-init all 0.7.9-233-ge586fe35-0ubuntu1~16.04.1 [324 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Fetched 837 kB in 0s (19.4 MB/s)
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 106558 files and directories currently installed.)
+Preparing to unpack .../libapparmor1_2.10.95-0ubuntu2.7_amd64.deb ...
+Unpacking libapparmor1:amd64 (2.10.95-0ubuntu2.7) over (2.10.95-0ubuntu2.6) ...
+Processing triggers for libc-bin (2.23-0ubuntu9) ...
+Setting up libapparmor1:amd64 (2.10.95-0ubuntu2.7) ...
+Processing triggers for libc-bin (2.23-0ubuntu9) ...
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 106558 files and directories currently installed.)
+Preparing to unpack .../libapparmor-perl_2.10.95-0ubuntu2.7_amd64.deb ...
+Unpacking libapparmor-perl (2.10.95-0ubuntu2.7) over (2.10.95-0ubuntu2.6) ...
+Preparing to unpack .../apparmor_2.10.95-0ubuntu2.7_amd64.deb ...
+Unpacking apparmor (2.10.95-0ubuntu2.7) over (2.10.95-0ubuntu2.6) ...
+Preparing to unpack .../cloud-init_0.7.9-233-ge586fe35-0ubuntu1~16.04.1_all.deb ...
+Unpacking cloud-init (0.7.9-233-ge586fe35-0ubuntu1~16.04.1) over (0.7.9-153-g16a7302f-0ubuntu1~16.04.2) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (229-4ubuntu19) ...
+Setting up libapparmor-perl (2.10.95-0ubuntu2.7) ...
+Setting up apparmor (2.10.95-0ubuntu2.7) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+Skipping profile in /etc/apparmor.d/disable: usr.sbin.rsyslogd
+Setting up cloud-init (0.7.9-233-ge586fe35-0ubuntu1~16.04.1) ...
+Installing new version of config file /etc/cloud/cloud.cfg ...
+Installing new version of config file /etc/cloud/templates/hosts.debian.tmpl ...
+Installing new version of config file /etc/cloud/templates/hosts.suse.tmpl ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Leaving 'diversion of /etc/init/ureadahead.conf to /etc/init/ureadahead.conf.disabled by cloud-init'
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libgdal1-dev is already the newest version (1.11.3+dfsg-3build2).
+libproj-dev is already the newest version (4.9.2-2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Picking 'curl' as source package instead of 'libcurl4-gnutls-dev'
+Picking 'libxml2' as source package instead of 'libxml2-dev'
+Picking 'openssl' as source package instead of 'libssl-dev'
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libcurl4-gnutls-dev is already the newest version (7.47.0-1ubuntu2.2).
+libssl-dev is already the newest version (1.0.2g-1ubuntu4.8).
+libxml2-dev is already the newest version (2.9.3+dfsg1-1ubuntu0.2).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+libudunits2-dev is already the newest version (2.2.20-1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Executing: /tmp/tmp.um1Tl6EvyQ/gpg.1.sh --keyserver
+keyserver.ubuntu.com
+--recv-keys
+E298A3A825C0D65DFD57CBB651716619E084DAB9
+gpg: requesting key E084DAB9 from hkp server keyserver.ubuntu.com
+gpg: key E084DAB9: "Michael Rutter <marutter@gmail.com>" not changed
+gpg: Total number processed: 1
+gpg:              unchanged: 1
+Hit:1 http://azure.archive.ubuntu.com/ubuntu xenial InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu xenial-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu xenial-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu xenial-security InRelease
+Hit:5 https://cran.rstudio.com/bin/linux/ubuntu xenial/ InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+r-base is already the newest version (3.4.1-2xenial0).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+mesg: ttyname failed: Inappropriate ioctl for device
+
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> # check.packages function: install and load multiple R packages.
+> # Check to see if packages are installed. Install them if they are not, then load them into the R session.
+> check.packages <- function(pkg){
++     new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
++     if (length(new.pkg)) 
++         install.packages(new.pkg, dependencies = TRUE, repos='http://cran.us.r-project.org')
++     sapply(pkg, require, character.only = TRUE)
++ }
+> 
+> # Usage example
+> packages<-c('devtools', 'dplyr','spacetime','xts','maps','rgdal','leaflet','rbokeh','plotly','sp')
+> check.packages(packages)
+Loading required package: devtools
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: spacetime
+Loading required package: xts
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+Attaching package: ‘xts’
+
+The following objects are masked from ‘package:dplyr’:
+
+    first, last
+
+Loading required package: maps
+Loading required package: rgdal
+Loading required package: sp
+rgdal: version: 1.2-8, (SVN revision 663)
+ Geospatial Data Abstraction Library extensions to R successfully loaded
+ Loaded GDAL runtime: GDAL 1.11.3, released 2015/09/16
+ Path to GDAL shared files: /usr/share/gdal/1.11
+ Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]
+ Path to PROJ.4 shared files: (autodetected)
+ Linking to sp version: 1.2-5 
+Loading required package: leaflet
+
+Attaching package: ‘leaflet’
+
+The following object is masked from ‘package:xts’:
+
+    addLegend
+
+Loading required package: rbokeh
+Loading required package: plotly
+Loading required package: ggplot2
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+ devtools     dplyr spacetime       xts      maps     rgdal   leaflet    rbokeh 
+     TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE 
+   plotly        sp 
+     TRUE      TRUE 
+> 
+> 
+fatal: destination path 'geoSpectral' already exists and is not an empty directory.
+mesg: ttyname failed: Inappropriate ioctl for device
+
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> library('devtools');install('/home/testuser/geoSpectral', depedencies = TRUE, type = 'source');library('geoSpectral');
+Installing geoSpectral
+'/usr/lib/R/bin/R' --no-site-file --no-environ --no-save --no-restore --quiet  \
+  CMD INSTALL '/home/testuser/geoSpectral'  \
+  --library='/usr/local/lib/R/site-library' --install-tests 
+
+* installing *source* package ‘geoSpectral’ ...
+** R
+** inst
+** tests
+** preparing package for lazy loading
+Creating a generic function for ‘ncol’ from package ‘base’ in package ‘geoSpectral’
+Creating a generic function for ‘nrow’ from package ‘base’ in package ‘geoSpectral’
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (geoSpectral)
+> 
+> 
+SSH: EXEC: completed after 34,622 ms
+SSH: Disconnecting configuration [targetdeploy key] ...
+SSH: Transferred 3 file(s)
+Build step 'Send files or execute commands over SSH' changed build result to SUCCESS
+Finished: SUCCESS
