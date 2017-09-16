@@ -59,6 +59,8 @@ function isAuthenticated(req, res, next) {
   if(token) {
 
     authenticationWorker.verifyToken(token, function(data) {
+      console.log('verifyToken result');
+      console.log(data);
       if(data.success) {
         req.user = data;
         return next();
