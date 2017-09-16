@@ -1,13 +1,16 @@
 
 angular.module('adminApp.interceptors.authentication', [])
-	.factory('authenticationInterceptor', ['$q', '$window', '$location', '$injector',  function($q, $window, $location, $injector) {
+	.factory('authenticationInterceptor', ['$q', '$window', '$location', '$injector',  '$cookies', 
+        function($q, $window, $location, $injector, $cookies, $state,   $stateParams) {
 
         return {
             request: function (config) {
 
                 config.headers = config.headers || {};
-                if ($window.sessionStorage.token) {
-                    config.headers['x-access-token'] = $window.sessionStorage.token;
+
+                var token = $cookies.getObject('token');
+                if (token) {
+                    config.headers['x-access-token'] = token;
                 }
                 return config;
             },

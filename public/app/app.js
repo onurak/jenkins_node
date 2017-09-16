@@ -28,18 +28,17 @@ app.run(
 
       $rootScope.$on( '$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
 
+        var token = $cookies.getObject('token');
         console.log(toState.name);
+        console.log('token : ' + token);
+        
         var isLogin = toState.name === 'admin.login';
         if(isLogin){
-
-            if($window.sessionStorage.token) {
+            if(token) {
                 $window.location = '/servers';
             }
-           return; 
-        }
-
-        if ($window.sessionStorage.token === undefined || $window.sessionStorage.token == null || $window.sessionStorage.token == '') {
-          $window.location = '/login';
+        } else if (! token) {
+            $window.location = '/login';
         }
       });
     }
