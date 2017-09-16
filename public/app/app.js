@@ -28,15 +28,9 @@ app.run(
 
       $rootScope.$on( '$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
 
-        var token = $cookies.getObject('token');
-        
+        var token = $cookies.getObject('token');        
         var isLogin = toState.name === 'admin.login';
 
-        console.log('toState.name');
-        console.log(toState.name);
-        console.log('isLogin');
-        console.log(isLogin);
-        console.log('token : ' + token);
         if(isLogin){
             if(token) {
                 $window.location = '/servers';

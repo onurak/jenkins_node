@@ -8,6 +8,6 @@ var serverSchema = new Schema({
         rootUserName: String,
         rootPassword: String,
         comments: String
-    });
+    }, { versionKey: false });
 
 module.exports = mongoose.model('server', serverSchema);

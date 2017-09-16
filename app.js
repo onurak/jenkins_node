@@ -54,13 +54,9 @@ var authenticationWorker  = require(__base + 'workers/authentication-worker');
 function isAuthenticated(req, res, next) {
 
   var token = req.headers['x-access-token'];
-  console.log('isAuthenticated');
-  console.log('token : ' + token);
   if(token) {
 
     authenticationWorker.verifyToken(token, function(data) {
-      console.log('verifyToken result');
-      console.log(data);
       if(data.success) {
         req.user = data;
         return next();
@@ -108,12 +104,6 @@ app.get('/*', function (req, res) {
     var p = path.join(__dirname, "public/views", 'index.html');
     res.sendFile(p);
 });
-/*
-app.get('/', function (req, res) {
-    console.log(req.path)
-    var p = path.join(__dirname, "public/views", 'index.html');
-    res.sendFile(p);
-});*/
     
 
 app.listen(8888);

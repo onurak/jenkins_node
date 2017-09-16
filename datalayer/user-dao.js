@@ -10,8 +10,6 @@ exports.getByUsername = function(userName, callback) {
 
 exports.getByToken = function(token, callback) {
     
-    console.log('getbytoken');
-    console.log(token);
     model.findOne({token: token}, {}, function(err, item) {
         console.log(item);
         callback(item);

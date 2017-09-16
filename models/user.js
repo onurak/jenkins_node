@@ -6,7 +6,7 @@ var userSchema = new Schema({
         password: String,
         token: String,
         tokenExpiration: Date,
-    });
+    }, { versionKey: false });
 
 
 userSchema.pre('save', function(next) {

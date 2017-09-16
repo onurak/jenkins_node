@@ -12,10 +12,7 @@ module.exports.authenticate = function(username, password, callback) {
 	userWorker.getByUsername(username, function(user) {
         
         if(user) {
-            console.log('hash');
-            console.log(user.password);
-            console.log(password);
-            console.log(bcrypt.compareSync(password, user.password));
+
             if (bcrypt.compareSync(password, user.password)) {
 
             	if (!user.tokenExpiration || user.tokenExpiration < new Date()) {
@@ -23,12 +20,8 @@ module.exports.authenticate = function(username, password, callback) {
             		user.token = crypto.randomBytes(64).toString('hex');
             	}
             	
-                console.log('authenticate user');
-                console.log(user);
                 userWorker.save(false, user, function(data) {
 
-                    console.log('data');
-                    console.log(data);
                     if(data) {
                         callback({success:true, token:user.token, message:''});
                     } else {

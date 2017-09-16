@@ -5,16 +5,7 @@ exports.build = function(deployData, callback) {
 	// TODO
 	var jobName = 'TestJob';
 
-	// global.jenkins.get_config_xml(jobName, function(err, data) {
-
-	// 	console.log('config xml');
-	// 	if (err) { 
-	// 		console.log(err); 
-	// 	}
-	// 	console.log('config xml');
-	// 	console.log(data)
-	// });
-
+	
 	if(jobName === undefined || jobName == null || jobName.length == 0) {
 		callback({success:false, data:{}, message:'Job name required.'});
 	} else {	

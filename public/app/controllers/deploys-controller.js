@@ -25,7 +25,6 @@ app.controller('DeploysController',
 			} else {
 				selected_item = null;
 			}
-			console.log($scope.selected);
 	    };
 
 
@@ -164,7 +163,6 @@ app.controller('DeploysController',
     			var response = jenkins.save({}, selected_item, function(result) {
 	    			if(response.success) {
 	    				$mdToast.show($mdToast.simple().textContent('Saved.').position('top right').hideDelay(3000));
-	    				console.log(response.message);
 					} else {
 						$mdToast.show($mdToast.simple().textContent(response.message).position('top right').hideDelay(3000));
 					}
