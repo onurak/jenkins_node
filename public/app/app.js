@@ -31,6 +31,10 @@ app.run(
         console.log(toState.name);
         var isLogin = toState.name === 'admin.login';
         if(isLogin){
+
+            if($window.sessionStorage.token) {
+                $window.location = '/servers';
+            }
            return; 
         }
 

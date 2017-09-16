@@ -1,4 +1,5 @@
-folder_name='shippn-backend-development'
+#!/bin/bash
+
 folder_path='/var/jenkins_home/workspace/TestJob'
 branch_name='dev'
 
