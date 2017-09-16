@@ -23,8 +23,12 @@ module.exports.authenticate = function(username, password, callback) {
             		user.token = crypto.randomBytes(64).toString('hex');
             	}
             	
+                console.log('authenticate user');
+                console.log(user);
                 userWorker.save(false, user, function(data) {
 
+                    console.log('data');
+                    console.log(data);
                     if(data) {
                         callback({success:true, token:user.token, message:''});
                     } else {
