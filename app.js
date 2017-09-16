@@ -53,7 +53,9 @@ app.use(function(req, res, next) {
 var authenticationWorker  = require(__base + 'workers/authentication-worker');
 function isAuthenticated(req, res, next) {
 
-  var token = req.body.token || req.query.token || req.headers['x-access-token'];
+  var token = req.headers['x-access-token'];
+  console.log('isAuthenticated');
+  console.log('token : ' + token);
   if(token) {
 
     authenticationWorker.verifyToken(token, function(data) {
